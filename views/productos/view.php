@@ -55,7 +55,11 @@ use yii\helpers\Url;
     </div>
 
     <div class="col-md-12">
-        <?= 
+    
+        <div class="alert alert-info" rol="alert">
+            <?= Yii::$app->session->getFlash('msg') ?? 'Aquí se mostrarán los mensajes cuando ejecutes alguna acción.'?>
+        </div>
+        <?=
             GridView::widget([
                 'dataProvider' => new ActiveDataProvider(['query' => $listaProductos, 'pagination' => ['pageSize' => 20]]),
                 'columns' => [
