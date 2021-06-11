@@ -14,7 +14,7 @@ use yii\helpers\Url;
 <div class="row">
     <div class="col-md-8">
         <div class="page-header">
-            <h2>Crud de productos <small>Ver, eliminar, actualizar producto</small></h2>
+            <h2>Inventario de productos <small>Ver, eliminar, actualizar producto</small></h2>
             <?php 
                 Modal::begin([
                     'header' => '<h2>Formulario de creación del producto</h2>',
