@@ -23,7 +23,7 @@ class ProductosController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['view', 'create', 'delete', 'sell'],
+                        'actions' => ['view', 'create', 'delete', 'sell', 'update'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -81,7 +81,26 @@ class ProductosController extends Controller
                 $session->setFlash('msg', "No se ha vendido el producto <strong>{$producto->nombre}</strong> debido a que no hay stock");
 
 
-        return $this->redirect(['view', 'msg' => '']);
+        return $this->redirect(['view']);
+    }
+
+    public function actionUpdate($id){ 
+
+        $productoModel = new CrearProductoForm();
+        $producto = Producto::find()->where(['id' => $id])->one();
+        $productoModel->attributes = $producto->attributes;
+        $request = Yii::$app->request;
+        $session = Yii::$app->session;
+
+        if($request->isPost){ 
+            $session->setFlash('msg', "Se ha actualizado el producto <strong>{$producto->nombre}</strong>");
+            $producto->attributes = $request->post('Productos');
+            $producto->save(false);
+            return $this->redirect(['view']);
+        }
+
+        return $this->render('update', ['productoModel' => $productoModel, 'id' => $id]);
+
     }
 }
 

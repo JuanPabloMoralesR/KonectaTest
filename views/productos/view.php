@@ -75,7 +75,7 @@ use yii\helpers\Url;
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'header' => 'Acciones',
-                        'template'=>'{delete} {sell}',      
+                        'template'=>'{delete} {sell} {update}',      
                         'buttons'=>[
                             'delete'=>function ($url, $model) {
                                 $ruta = 'index.php?r=productos/delete&id='.$model['id'];
@@ -84,7 +84,11 @@ use yii\helpers\Url;
                             'sell' => function($url, $model){
                                 $ruta = 'index.php?r=productos/sell&id='.$model['id'];
                                 return Html::a('<span class="glyphicon glyphicon-euro"></span> Vender', $ruta, ['class' => 'btn btn-xs btn-success']);
-                            }
+                            }, 
+                            'update' => function($url, $model){
+                                $ruta = 'index.php?r=productos/update&id='.$model['id'];
+                                return Html::a('<span class="glyphicon glyphicon-pencil"></span> Actializar', $ruta, ['class' => 'btn btn-xs btn-info']);
+                            }, 
                         ],
                     ], 
                    
