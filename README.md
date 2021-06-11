@@ -1,7 +1,7 @@
 Para la correcta ejecución del programa, luego de copiado el proyecto al entorno local, se deben instalar las dependencias de Yii: <br>
 
-<strong>composer install</strong> Para comenzar con la instalación de los paquetes <br>
-<strong>php yii serve </strong> Para inicilizar el servidor local <br>
+<strong>composer install -------------------------></strong> Para comenzar con la instalación de los paquetes <br>
+<strong>php yii serve -------------------------></strong> Para inicilizar el servidor local <br>
 
 <h4>Por defecto, el proyecto buscará una base de datos con el nombre de konecta, esto se puede cambiar en config/db.php: <h4><br>
 
